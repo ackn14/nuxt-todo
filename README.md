@@ -1,22 +1,15 @@
 # nuxt-todo
 
-> My perfect Nuxt.js project
+## Setup
 
-## Build Setup
+- 1. .envにfirebaseのプロジェクトIDを記載
+- 2. バッケージのインストール
 
 ``` bash
-# install dependencies
 $ npm run install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
 ```
+- 3. 起動
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+```bash
+npm run dev
+```
