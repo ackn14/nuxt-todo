@@ -18,9 +18,9 @@
             <v-card-actions class="pt-0">
               <v-col cols="10" md="10" class="pl-0">
                 <v-btn text>
-                  <v-chip small color="#5963F8" label dark>
+                  <v-chip color="grey lighten-3" label>
                     <v-avatar left>
-                      <v-icon small color="white">mdi-calendar</v-icon>
+                      <v-icon small color="primary">mdi-calendar</v-icon>
                     </v-avatar>
                     {{ task.date }}
                   </v-chip></v-btn
