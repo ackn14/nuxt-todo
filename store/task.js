@@ -2,20 +2,20 @@ import { firestoreAction } from 'vuexfire'
 import firebase from '~/plugins/firebase'
 
 const db = firebase.firestore()
-const todosRef = db.collection('todos')
+const taskRef = db.collection('task')
 
 export const state = () => ({
-  todos: []
+  tasks: []
 })
 
 export const actions = {
   init: firestoreAction(({ bindFirestoreRef }) => {
-    bindFirestoreRef('todos', todosRef)
+    bindFirestoreRef('tasks', taskRef)
   }),
-  add: firestoreAction((context, { task, detail, date }) => {
-    if (task.trim()) {
-      todosRef.add({
-        task,
+  add: firestoreAction((context, { title, detail, date }) => {
+    if (title.trim()) {
+      taskRef.add({
+        title,
         detail,
         date,
         status: false
@@ -23,10 +23,10 @@ export const actions = {
     }
   }),
   remove: firestoreAction((context, id) => {
-    todosRef.doc(id).delete()
+    taskRef.doc(id).delete()
   }),
   toggle: firestoreAction((context, todo) => {
-    todosRef.doc(todo.id).update({
+    taskRef.doc(todo.id).update({
       status: !todo.status
     })
   })
@@ -34,6 +34,6 @@ export const actions = {
 
 export const getters = {
   orderdTodos: (state) => {
-    return _.orderBy(state.todos, 'date', 'asc')
+    return _.orderBy(state.tasks, 'date', 'asc')
   }
 }

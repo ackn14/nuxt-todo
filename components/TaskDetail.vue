@@ -1,8 +1,8 @@
 <template>
   <v-dialog v-model="dialog" persistent max-width="600px">
     <template v-slot:activator="{ on }">
-      <v-btn color="primary" dark v-on="on"
-        ><v-icon small class="mr-2">mdi-check-bold </v-icon
+      <v-btn color="#5963F8" dark class="font-weight-bold" v-on="on"
+        ><v-icon small class="mr-2">mdi-plus-circle-outline </v-icon
         >新規タスクを追加</v-btn
       >
     </template>
@@ -14,7 +14,7 @@
         <v-container>
           <v-row>
             <v-col cols="12">
-              <v-text-field v-model="task" label="Task"></v-text-field>
+              <v-text-field v-model="title" label="Title"></v-text-field>
             </v-col>
             <v-col cols="12">
               <v-textarea v-model="detail" label="Detail"></v-textarea>
@@ -62,7 +62,7 @@
 export default {
   data() {
     return {
-      task: '',
+      title: '',
       detail: '',
       dialog: false,
       date: new Date().toISOString().substr(0, 10),
@@ -72,8 +72,8 @@ export default {
   },
   methods: {
     add() {
-      this.$store.dispatch('todos/add', {
-        task: this.task,
+      this.$store.dispatch('task/add', {
+        title: this.title,
         detail: this.detail,
         date: this.date
       })

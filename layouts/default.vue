@@ -1,6 +1,6 @@
 <template>
   <v-app dark>
-    <v-app-bar :clipped-left="clipped" class="indigo accent-4" fixed app dark>
+    <v-app-bar color="#5963F8" fixed app dark>
       <v-toolbar-title>{{ title }}</v-toolbar-title>
     </v-app-bar>
     <v-content>
@@ -15,24 +15,6 @@
 export default {
   data() {
     return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
-        }
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
       title: 'TodoList'
     }
   }
@@ -40,6 +22,9 @@ export default {
 </script>
 
 <style>
+.theme--light.v-application {
+  background: #fff;
+}
 .v-toolbar__title {
   font-family: 'Damion', cursive;
   font-size: 2.5rem;
